@@ -7,9 +7,10 @@ syn match  birdComment /\/\/.*$/
 syn region birdString  start=/"/ end=/"/ skip=/\\"/
 
 syn match  birdNumber  /\<\d\+\>/
-syn match  birdPrefix  /\<\d\{1,3\}\(\.\d\{1,3\}\)\{3\}\/\d\{1,2\}\+\?/
+" BIRD allows `prefix+` to mean "this prefix and longer"; treat the trailing `+` as optional literal.
+syn match  birdPrefix  /\<\d\{1,3\}\(\.\d\{1,3\}\)\{3\}\/\d\{1,2\}+\=/
 syn match  birdIp4     /\<\d\{1,3\}\(\.\d\{1,3\}\)\{3\}\>/
-syn match  birdIp6     /\<\([0-9a-fA-F]\{1,4\}\:\)\+[0-9a-fA-F:]\+\(\/\d\{1,3\}\+\?\)\?/
+syn match  birdIp6     /\<\([0-9a-fA-F]\{1,4\}\:\)\+[0-9a-fA-F:]\+\(\/\d\{1,3\}+\=\)\?/
 
 " Top-level keywords
 syn keyword birdKeyword protocol filter function define include router table
