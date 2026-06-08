@@ -1,0 +1,120 @@
+{
+  "name": "routels",
+  "displayName": "routels",
+  "description": "Linter + LSP for Arista EOS, FRR, VyOS, MikroTik, BIRD, nftables, HAproxy, WireGuard, sysctl, and Debian interfaces configs.",
+  "version": "0.1.0",
+  "publisher": "rotko",
+  "license": "MIT OR Apache-2.0",
+  "repository": { "type": "git", "url": "https://github.com/rotkonetworks/routels" },
+  "engines": { "vscode": "^1.80.0" },
+  "categories": ["Programming Languages", "Linters"],
+  "activationEvents": [
+    "onLanguage:frr",
+    "onLanguage:eos",
+    "onLanguage:vyos",
+    "onLanguage:routeros",
+    "onLanguage:bird",
+    "onLanguage:nftables",
+    "onLanguage:debinterfaces",
+    "onLanguage:wireguard",
+    "onLanguage:haproxy",
+    "onLanguage:sysctl"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "frr",
+        "aliases": ["FRR", "vtysh"],
+        "filenamePatterns": ["**/vtysh.conf", "**/frr.conf", "**/upstream/*.conf", "**/vyos/vyos*.conf"],
+        "configuration": "./language-config-bang.json"
+      },
+      {
+        "id": "eos",
+        "aliases": ["Arista EOS"],
+        "filenamePatterns": ["**/ceos/*.cfg", "**/arista/*.cfg", "**/eos/*.cfg"],
+        "configuration": "./language-config-bang.json"
+      },
+      {
+        "id": "vyos",
+        "aliases": ["VyOS"],
+        "filenamePatterns": ["**/config.boot", "**/*.boot"],
+        "configuration": "./language-config-hash.json"
+      },
+      {
+        "id": "routeros",
+        "aliases": ["MikroTik RouterOS"],
+        "extensions": [".rsc"],
+        "configuration": "./language-config-hash.json"
+      },
+      {
+        "id": "bird",
+        "aliases": ["BIRD"],
+        "filenames": ["bird.conf", "bird2.conf"],
+        "filenamePatterns": ["**/bird/*.conf", "**/*-bird.conf"],
+        "configuration": "./language-config-c.json"
+      },
+      {
+        "id": "nftables",
+        "aliases": ["nftables"],
+        "extensions": [".nft"],
+        "filenamePatterns": ["**/nftables*.conf", "**/nftables.d/*.nft"],
+        "configuration": "./language-config-hash.json"
+      },
+      {
+        "id": "debinterfaces",
+        "aliases": ["Debian interfaces"],
+        "filenames": ["interfaces"],
+        "filenamePatterns": ["**/interfaces.d/*", "**/interfaces/*.conf", "**/*-interfaces.conf"],
+        "configuration": "./language-config-hash.json"
+      },
+      {
+        "id": "wireguard",
+        "aliases": ["WireGuard"],
+        "filenamePatterns": ["**/wireguard/*.conf", "**/wg*.conf"],
+        "configuration": "./language-config-hash.json"
+      },
+      {
+        "id": "haproxy",
+        "aliases": ["HAproxy"],
+        "filenamePatterns": ["**/haproxy.cfg", "**/*-haproxy.cfg", "**/haproxy/*.cfg"],
+        "configuration": "./language-config-hash.json"
+      },
+      {
+        "id": "sysctl",
+        "aliases": ["sysctl"],
+        "filenamePatterns": ["**/sysctl.conf", "**/sysctl.d/*.conf"],
+        "configuration": "./language-config-hash.json"
+      }
+    ],
+    "configuration": {
+      "title": "routels",
+      "properties": {
+        "routels.path": {
+          "type": "string",
+          "default": "routels",
+          "description": "Path to the routels binary."
+        },
+        "routels.trace.server": {
+          "type": "string",
+          "enum": ["off", "messages", "verbose"],
+          "default": "off",
+          "description": "Trace routels LSP server communication (for debugging)."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.4.0"
+  }
+}

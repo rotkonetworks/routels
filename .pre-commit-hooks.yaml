@@ -1,0 +1,71 @@
+- id: routels-frr
+  name: routels frr
+  description: Lint FRR / vtysh configs.
+  entry: routels frr
+  language: system
+  types_or: [text]
+  files: '(/(vtysh|frr)\.conf|/upstream/.*\.conf|/vyos/vyos.*\.conf)$'
+
+- id: routels-eos
+  name: routels eos
+  description: Lint Arista EOS / cEOS configs.
+  entry: routels eos
+  language: system
+  types_or: [text]
+  files: '/(ceos|arista|eos)/.*\.cfg$'
+
+- id: routels-vyos
+  name: routels vyos
+  description: Lint VyOS native (set-style or curly) configs.
+  entry: routels vyos
+  language: system
+  files: '\.boot$|/vyos/config\.boot$'
+
+- id: routels-mikrotik
+  name: routels mikrotik
+  description: Lint MikroTik RouterOS .rsc exports.
+  entry: routels mikrotik
+  language: system
+  files: '\.rsc$'
+
+- id: routels-bird
+  name: routels bird
+  description: Lint BIRD configs.
+  entry: routels bird
+  language: system
+  files: '(^|/)bird2?\.conf$|/bird/.*\.conf$|-bird\.conf$'
+
+- id: routels-nft
+  name: routels nft / iptables-save
+  description: Lint nftables (.nft) or iptables-save dumps.
+  entry: routels nft
+  language: system
+  files: '\.nft$|/nftables.*\.conf$'
+
+- id: routels-debian
+  name: routels debian /etc/network/interfaces
+  description: Lint Debian ifupdown interfaces files.
+  entry: routels debian
+  language: system
+  files: '/interfaces(\.d/.*)?$|/interfaces/.*\.conf$|-interfaces\.conf$'
+
+- id: routels-wireguard
+  name: routels wireguard
+  description: Lint wg-quick configs.
+  entry: routels wireguard
+  language: system
+  files: '/wireguard/.*\.conf$|/wg\d+\.conf$'
+
+- id: routels-haproxy
+  name: routels haproxy
+  description: Lint HAproxy configs.
+  entry: routels haproxy
+  language: system
+  files: '/haproxy\.cfg$|-haproxy\.cfg$|/haproxy/.*\.cfg$'
+
+- id: routels-sysctl
+  name: routels sysctl
+  description: Lint sysctl.conf / sysctl.d/*.conf.
+  entry: routels sysctl
+  language: system
+  files: '/sysctl\.conf$|/sysctl\.d/.*\.conf$'

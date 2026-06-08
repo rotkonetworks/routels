@@ -1,0 +1,4 @@
+table foofamily filter {
+    chain input {
+        type filter hook nowhere priority 0; policy drop;
+    }

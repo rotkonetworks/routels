@@ -1,0 +1,13 @@
+/target
+Cargo.lock.bak
+
+# JS/TS toolchain artifacts (VS Code extension + tree-sitter CLI)
+**/node_modules/
+*.vsix
+editor/vscode/out/
+editor/vscode/package-lock.json
+tree-sitter/*/package-lock.json
+tree-sitter/*/src/parser.c
+tree-sitter/*/src/tree_sitter/
+tree-sitter/*/src/grammar.json
+tree-sitter/*/src/node-types.json

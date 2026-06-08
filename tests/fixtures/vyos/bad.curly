@@ -1,0 +1,4 @@
+bogus-root {
+    ethernet eth0 {
+        address 10.0.0.300/24
+    }

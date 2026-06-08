@@ -1,0 +1,6 @@
+set interfaces ethernet eth0 address '10.0.0.1/24'
+set interfaces ethernet eth0 description 'wan'
+set protocols static route 0.0.0.0/0 next-hop 10.0.0.254
+set protocols bgp system-as 65001
+set protocols bgp neighbor 10.0.0.2 remote-as 65002
+set system host-name r1

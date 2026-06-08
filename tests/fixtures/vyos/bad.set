@@ -1,0 +1,5 @@
+set interfaces ethernet eth0 address '10.0.0.300/24'
+set bogus-root foo bar
+zzz interfaces ethernet eth0
+set system host-name 'unbalanced
+set protocols static route 10.999.0.0/24 next-hop 1.2.3.4
