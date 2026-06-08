@@ -32,8 +32,8 @@ cargo install routels --locked
 ```
 
 Pre-built binaries: tag a release in this repo and GitHub Actions produces
-tarballs for `x86_64-unknown-linux-musl`, `aarch64-unknown-linux-musl`,
-`x86_64-apple-darwin`, `aarch64-apple-darwin`. See `.github/workflows/release.yml`.
+tarballs for `x86_64-unknown-linux-musl`, `aarch64-unknown-linux-musl`, and
+`aarch64-apple-darwin`. See `.github/workflows/release.yml`.
 
 ## CLI
 
