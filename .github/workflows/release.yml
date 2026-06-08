@@ -50,7 +50,12 @@ jobs:
           mkdir -p dist
           cp "target/${{ matrix.target }}/release/routels" "dist/routels"
           tar -C dist -czf "dist/${name}.tar.gz" routels
-          (cd dist && sha256sum "${name}.tar.gz" > "${name}.tar.gz.sha256")
+          # macOS runners have `shasum` but not `sha256sum`; linux runners have both.
+          if command -v sha256sum >/dev/null; then
+            (cd dist && sha256sum "${name}.tar.gz" > "${name}.tar.gz.sha256")
+          else
+            (cd dist && shasum -a 256 "${name}.tar.gz" > "${name}.tar.gz.sha256")
+          fi
       - uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.target }}

@@ -210,19 +210,17 @@ fn check_option(
                 ));
             }
         }
-        "dns-nameservers" | "dns-search" => {
-            if *key == "dns-nameservers" {
-                for v in value_parts {
-                    if !is_valid_ipv4(v) && !is_valid_ipv6(v) {
-                        diags.push(Diagnostic::new(
-                            file,
-                            lno,
-                            1,
-                            Severity::Error,
-                            "DEB023",
-                            format!("invalid DNS server `{}`", v),
-                        ));
-                    }
+        "dns-nameservers" => {
+            for v in value_parts {
+                if !is_valid_ipv4(v) && !is_valid_ipv6(v) {
+                    diags.push(Diagnostic::new(
+                        file,
+                        lno,
+                        1,
+                        Severity::Error,
+                        "DEB023",
+                        format!("invalid DNS server `{}`", v),
+                    ));
                 }
             }
         }
