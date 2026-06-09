@@ -6,10 +6,12 @@ syn match  wgSection /^\s*\[\(Interface\|Peer\)\].*$/
 syn match  wgKey /^\s*\w\+\ze\s*=/
 syn match  wgEq  /=/
 
+" Order matters: IP4 must be defined before Prefix so the longer prefix
+" pattern (defined later) wins. See `:help syn-priority`.
 syn match  wgNumber  /\<\d\+\>/
-syn match  wgPrefix  /\<\d\{1,3\}\(\.\d\{1,3\}\)\{3\}\/\d\{1,2\}\>/
 syn match  wgIp4     /\<\d\{1,3\}\(\.\d\{1,3\}\)\{3\}\>/
 syn match  wgIp6     /\<\([0-9a-fA-F]\{1,4\}\:\)\+[0-9a-fA-F:]\+\(\/\d\{1,3\}\)\?/
+syn match  wgPrefix  /\<\d\{1,3\}\(\.\d\{1,3\}\)\{3\}\/\d\{1,2\}\>/
 " base64 wg key heuristic: 43+ base64 chars then `=`
 syn match  wgB64     /\<[A-Za-z0-9+\/]\{42,43\}=/
 

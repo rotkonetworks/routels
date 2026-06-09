@@ -4,10 +4,12 @@ syn match  vyosComment /^\s*#.*$/
 syn region vyosString  start=/'/ end=/'/ skip=/\\\\\\'/
 syn region vyosString  start=/"/ end=/"/ skip=/\\\\\\"/
 
+" Order matters: IP4 must be defined before Prefix so the longer prefix
+" pattern (defined later) wins. See `:help syn-priority`.
 syn match  vyosNumber  /\<\d\+\>/
-syn match  vyosPrefix  /\<\d\{1,3\}\(\.\d\{1,3\}\)\{3\}\/\d\{1,2\}\>/
 syn match  vyosIp4     /\<\d\{1,3\}\(\.\d\{1,3\}\)\{3\}\>/
 syn match  vyosIp6     /\<\([0-9a-fA-F]\{1,4\}\:\)\+[0-9a-fA-F:]\+\(\/\d\{1,3\}\)\?/
+syn match  vyosPrefix  /\<\d\{1,3\}\(\.\d\{1,3\}\)\{3\}\/\d\{1,2\}\>/
 
 " Top-level verbs (set-style)
 syn keyword vyosVerb set delete commit save show comment edit top up exit load discard compare run

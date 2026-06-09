@@ -3,10 +3,12 @@ if exists("b:current_syntax") | finish | endif
 syn match  difComment /^\s*#.*$/
 syn region difString  start=/"/ end=/"/
 
+" Order matters: define IP4 before Prefix so the prefix (defined later) wins
+" for `1.2.3.4/24` patterns. See `:help syn-priority`.
 syn match  difNumber  /\<\d\+\>/
-syn match  difPrefix  /\<\d\{1,3\}\(\.\d\{1,3\}\)\{3\}\/\d\{1,2\}\>/
 syn match  difIp4     /\<\d\{1,3\}\(\.\d\{1,3\}\)\{3\}\>/
 syn match  difIp6     /\<\([0-9a-fA-F]\{1,4\}\:\)\+[0-9a-fA-F:]\+\(\/\d\{1,3\}\)\?/
+syn match  difPrefix  /\<\d\{1,3\}\(\.\d\{1,3\}\)\{3\}\/\d\{1,2\}\>/
 
 " Top-level stanza keywords (column 0)
 syn keyword difStanza auto allow-auto allow-hotplug no-auto-down no-scripts

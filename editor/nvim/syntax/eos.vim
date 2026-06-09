@@ -3,10 +3,12 @@ if exists("b:current_syntax") | finish | endif
 syn match  eosComment /^\s*!.*$/
 syn region eosString  start=/"/ end=/"/
 
+" Order matters: IP4 must be defined before Prefix so the longer prefix
+" pattern (defined later) wins. See `:help syn-priority`.
 syn match  eosNumber  /\<\d\+\>/
-syn match  eosPrefix  /\<\d\{1,3\}\(\.\d\{1,3\}\)\{3\}\/\d\{1,2\}\>/
 syn match  eosIp4     /\<\d\{1,3\}\(\.\d\{1,3\}\)\{3\}\>/
 syn match  eosIp6     /\<\([0-9a-fA-F]\{1,4\}\:\)\+[0-9a-fA-F:]\+\(\/\d\{1,3\}\)\?/
+syn match  eosPrefix  /\<\d\{1,3\}\(\.\d\{1,3\}\)\{3\}\/\d\{1,2\}\>/
 
 " Section openers / context-changing keywords
 syn keyword eosSection interface router vrf line vlan management

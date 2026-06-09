@@ -6,11 +6,14 @@ syn match  birdComment /\/\/.*$/
 
 syn region birdString  start=/"/ end=/"/ skip=/\\"/
 
+" Order matters: later definitions override earlier when starting at the same
+" column (`:help syn-priority`). Define the bare number first, then IPs,
+" then the prefix form so `1.2.3.4/24` lands as birdPrefix, not birdIp4.
 syn match  birdNumber  /\<\d\+\>/
-" BIRD allows `prefix+` to mean "this prefix and longer"; treat the trailing `+` as optional literal.
-syn match  birdPrefix  /\<\d\{1,3\}\(\.\d\{1,3\}\)\{3\}\/\d\{1,2\}+\=/
 syn match  birdIp4     /\<\d\{1,3\}\(\.\d\{1,3\}\)\{3\}\>/
 syn match  birdIp6     /\<\([0-9a-fA-F]\{1,4\}\:\)\+[0-9a-fA-F:]\+\(\/\d\{1,3\}+\=\)\?/
+" BIRD allows `prefix+` to mean "this prefix and longer"; treat the trailing `+` as optional literal.
+syn match  birdPrefix  /\<\d\{1,3\}\(\.\d\{1,3\}\)\{3\}\/\d\{1,2\}+\=/
 
 " Top-level keywords
 syn keyword birdKeyword protocol filter function define include router table

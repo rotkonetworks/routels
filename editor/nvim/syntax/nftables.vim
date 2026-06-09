@@ -3,11 +3,13 @@ if exists("b:current_syntax") | finish | endif
 syn region nftComment start=/#/ end=/$/ contains=@Spell
 syn region nftString  start=/"/ end=/"/
 
+" Order matters: IP4 must be defined before Prefix so the longer prefix
+" pattern (defined later) wins. See `:help syn-priority`.
 syn match  nftNumber  /\<\d\+\>/
-syn match  nftPrefix  /\<\d\{1,3\}\(\.\d\{1,3\}\)\{3\}\/\d\{1,2\}\>/
 syn match  nftIp4     /\<\d\{1,3\}\(\.\d\{1,3\}\)\{3\}\>/
 syn match  nftIp6     /\<\([0-9a-fA-F]\{1,4\}\:\)\+[0-9a-fA-F:]\+\(\/\d\{1,3\}\)\?/
 syn match  nftMac     /\<\([0-9a-fA-F]\{2\}\:\)\{5\}[0-9a-fA-F]\{2\}\>/
+syn match  nftPrefix  /\<\d\{1,3\}\(\.\d\{1,3\}\)\{3\}\/\d\{1,2\}\>/
 
 " Section/structural keywords
 syn keyword nftStructure table chain set map flowtable include define

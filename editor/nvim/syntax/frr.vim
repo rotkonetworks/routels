@@ -10,11 +10,12 @@ syn region frrString start=/"/ end=/"/ contains=@Spell
 " Numbers
 syn match frrNumber /\<\d\+\>/
 
-" IPv4 prefix / address
-syn match frrPrefix /\<\d\{1,3\}\(\.\d\{1,3\}\)\{3\}\/\d\{1,2\}\>/
+" Order matters: IP4 must be defined before Prefix so the longer prefix
+" pattern (defined later) wins. See `:help syn-priority`.
 syn match frrIp4 /\<\d\{1,3\}\(\.\d\{1,3\}\)\{3\}\>/
 " IPv6 (coarse): hex groups with `:`, optional `/N`
 syn match frrIp6 /\<\([0-9a-fA-F]\{1,4\}\:\)\+[0-9a-fA-F:]\+\(\/\d\{1,3\}\)\?/
+syn match frrPrefix /\<\d\{1,3\}\(\.\d\{1,3\}\)\{3\}\/\d\{1,2\}\>/
 
 " Top-level / section openers
 syn keyword frrSection router interface vrf address-family exit-address-family

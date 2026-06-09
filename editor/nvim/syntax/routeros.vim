@@ -4,11 +4,12 @@ syn match  rosComment /^\s*#.*$/
 syn region rosString  start=/"/ end=/"/ skip=/\\"/
 
 " Numbers / time-spans like 30s, 5m, 1h, 2d
+" Order matters: IP4 before Prefix so the longer prefix (defined later) wins.
 syn match  rosNumber  /\<\d\+\(\.\d\+\)\?\(s\|m\|h\|d\|w\)\?\>/
-syn match  rosPrefix  /\<\d\{1,3\}\(\.\d\{1,3\}\)\{3\}\/\d\{1,2\}\>/
 syn match  rosIp4     /\<\d\{1,3\}\(\.\d\{1,3\}\)\{3\}\>/
 syn match  rosIp6     /\<\([0-9a-fA-F]\{1,4\}\:\)\+[0-9a-fA-F:]\+\(\/\d\{1,3\}\)\?/
 syn match  rosMac     /\<\([0-9a-fA-F]\{2\}\:\)\{5\}[0-9a-fA-F]\{2\}\>/
+syn match  rosPrefix  /\<\d\{1,3\}\(\.\d\{1,3\}\)\{3\}\/\d\{1,2\}\>/
 
 " Path lines start with `/`
 syn match  rosPath    /^\s*\/[A-Za-z][A-Za-z0-9 \-/]*/
