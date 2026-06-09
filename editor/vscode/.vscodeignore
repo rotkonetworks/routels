@@ -5,6 +5,11 @@ src/**
 **/*.ts
 !out/**
 tsconfig.json
+package-lock.json
+*.vsix
+PUBLISH.md
+ICON-TODO.md
+.gitignore
 node_modules/**
 !node_modules/vscode-languageclient/**
 !node_modules/vscode-jsonrpc/**

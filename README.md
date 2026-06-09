@@ -104,8 +104,16 @@ What you get:
 
 ### VS Code
 
+Once published on the Marketplace:
+
 ```sh
-code --install-extension /path/to/routels/editor/vscode/routels-0.1.0.vsix
+code --install-extension rotko.routels
+```
+
+From a downloaded `.vsix` (GitHub release, or built locally):
+
+```sh
+code --install-extension /path/to/routels-0.1.0.vsix
 ```
 
 Or run from source without packaging:
@@ -116,7 +124,8 @@ code --extensionDevelopmentPath=/path/to/routels/editor/vscode
 
 The extension activates on any of the 10 language IDs and spawns
 `routels lsp` via `vscode-languageclient`. Set `routels.path` in user settings
-if the binary is not on `$PATH`.
+if the binary is not on `$PATH`. See `editor/vscode/` for the extension
+source and `editor/vscode/PUBLISH.md` for release steps.
 
 ## CI integration
 
