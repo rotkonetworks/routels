@@ -47,6 +47,12 @@ au BufRead,BufNewFile */ceos/*.cfg,*/arista/*.cfg,*/eos/*.cfg set filetype=eos
 " --- VyOS (set-style or curly-style flat configs) ---
 au BufRead,BufNewFile */vyos/*.set,*.vyos        set filetype=vyos
 
+" --- Templates (*.tpl) ---
+" Re-run detection with the .tpl suffix stripped, so e.g. */ceos/sw1.cfg.tpl
+" is detected like */ceos/sw1.cfg. Defined after the format rules above so it
+" also fires them via doautocmd; overrides nvim's built-in `smarty` for .tpl.
+au BufRead,BufNewFile *.tpl exe 'doautocmd filetypedetect BufRead' fnameescape(expand('<afile>:p:r'))
+
 " --- Content-based fallback for .conf files: sniff for FRR / EOS markers ---
 function! s:RoutelsSniffConf() abort
   if did_filetype() | return | endif

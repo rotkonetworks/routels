@@ -58,39 +58,68 @@
       {
         "id": "frr",
         "aliases": ["FRR", "vtysh"],
-        "filenamePatterns": ["**/vtysh.conf", "**/frr.conf", "**/upstream/*.conf", "**/vyos/vyos*.conf"],
+        "filenamePatterns": [
+          "**/vtysh.conf",
+          "**/frr.conf",
+          "**/upstream/*.conf",
+          "**/vyos/vyos*.conf",
+          "**/vtysh.conf.tpl",
+          "**/frr.conf.tpl",
+          "**/upstream/*.conf.tpl",
+          "**/vyos/vyos*.conf.tpl"
+        ],
         "configuration": "./language-config-bang.json"
       },
       {
         "id": "eos",
         "aliases": ["Arista EOS"],
-        "filenamePatterns": ["**/ceos/*.cfg", "**/arista/*.cfg", "**/eos/*.cfg"],
+        "filenamePatterns": [
+          "**/ceos/*.cfg",
+          "**/arista/*.cfg",
+          "**/eos/*.cfg",
+          "**/ceos/*.cfg.tpl",
+          "**/arista/*.cfg.tpl",
+          "**/eos/*.cfg.tpl"
+        ],
         "configuration": "./language-config-bang.json"
       },
       {
         "id": "vyos",
         "aliases": ["VyOS"],
-        "filenamePatterns": ["**/config.boot", "**/*.boot"],
+        "filenamePatterns": ["**/config.boot", "**/*.boot", "**/*.boot.tpl"],
         "configuration": "./language-config-hash.json"
       },
       {
         "id": "routeros",
         "aliases": ["MikroTik RouterOS"],
         "extensions": [".rsc"],
+        "filenamePatterns": ["**/*.rsc.tpl"],
         "configuration": "./language-config-hash.json"
       },
       {
         "id": "bird",
         "aliases": ["BIRD"],
         "filenames": ["bird.conf", "bird2.conf"],
-        "filenamePatterns": ["**/bird/*.conf", "**/*-bird.conf"],
+        "filenamePatterns": [
+          "**/bird/*.conf",
+          "**/*-bird.conf",
+          "**/bird.conf.tpl",
+          "**/bird2.conf.tpl",
+          "**/bird/*.conf.tpl",
+          "**/*-bird.conf.tpl"
+        ],
         "configuration": "./language-config-c.json"
       },
       {
         "id": "nftables",
         "aliases": ["nftables"],
         "extensions": [".nft"],
-        "filenamePatterns": ["**/nftables*.conf", "**/nftables.d/*.nft"],
+        "filenamePatterns": [
+          "**/nftables*.conf",
+          "**/nftables.d/*.nft",
+          "**/*.nft.tpl",
+          "**/nftables*.conf.tpl"
+        ],
         "configuration": "./language-config-hash.json"
       },
       {
@@ -103,19 +132,36 @@
       {
         "id": "wireguard",
         "aliases": ["WireGuard"],
-        "filenamePatterns": ["**/wireguard/*.conf", "**/wg*.conf"],
+        "filenamePatterns": [
+          "**/wireguard/*.conf",
+          "**/wg*.conf",
+          "**/wireguard/*.conf.tpl",
+          "**/wg*.conf.tpl"
+        ],
         "configuration": "./language-config-hash.json"
       },
       {
         "id": "haproxy",
         "aliases": ["HAproxy"],
-        "filenamePatterns": ["**/haproxy.cfg", "**/*-haproxy.cfg", "**/haproxy/*.cfg"],
+        "filenamePatterns": [
+          "**/haproxy.cfg",
+          "**/*-haproxy.cfg",
+          "**/haproxy/*.cfg",
+          "**/haproxy.cfg.tpl",
+          "**/*-haproxy.cfg.tpl",
+          "**/haproxy/*.cfg.tpl"
+        ],
         "configuration": "./language-config-hash.json"
       },
       {
         "id": "sysctl",
         "aliases": ["sysctl"],
-        "filenamePatterns": ["**/sysctl.conf", "**/sysctl.d/*.conf"],
+        "filenamePatterns": [
+          "**/sysctl.conf",
+          "**/sysctl.d/*.conf",
+          "**/sysctl.conf.tpl",
+          "**/sysctl.d/*.conf.tpl"
+        ],
         "configuration": "./language-config-hash.json"
       }
     ],
