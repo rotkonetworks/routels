@@ -28,6 +28,8 @@ You can also set the language manually in the VS Code language picker.
 
 ## What you get
 
+- **Syntax highlighting** for all 10 formats (TextMate grammars, standard
+  scopes — works with any theme).
 - **Diagnostics** on every keystroke: prefix validity, ASN range, brace and
   section grammar, family/hook validity, cross-references inside the file
   (route-map, prefix-list, ACL, backend, peer names).
