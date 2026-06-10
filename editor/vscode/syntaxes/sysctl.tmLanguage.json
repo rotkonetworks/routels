@@ -1,0 +1,52 @@
+{
+  "name": "sysctl",
+  "scopeName": "source.sysctl",
+  "patterns": [
+    { "include": "#comment" },
+    { "include": "#key" },
+    { "include": "#equals" },
+    { "include": "#number" },
+    { "include": "#boolean" },
+    { "include": "#subsystem" }
+  ],
+  "repository": {
+    "comment": {
+      "patterns": [
+        {
+          "name": "comment.line.number-sign.sysctl",
+          "match": "^\\s*#.*$"
+        },
+        {
+          "name": "comment.line.semicolon.sysctl",
+          "match": "^\\s*;.*$"
+        }
+      ]
+    },
+    "key": {
+      "comment": "Dotted key with optional leading `-` (ignore-errors prefix); common subsystem prefixes get an accent",
+      "match": "^\\s*(-)?(?:(net|kernel|vm|fs|dev|user|abi|debug|crypto)(\\.[a-zA-Z0-9._-]*)|([a-zA-Z][a-zA-Z0-9._-]*))(?=\\s*=)",
+      "captures": {
+        "1": { "name": "keyword.operator.ignore-errors.sysctl" },
+        "2": { "name": "support.type.subsystem.sysctl" },
+        "3": { "name": "variable.other.key.sysctl" },
+        "4": { "name": "variable.other.key.sysctl" }
+      }
+    },
+    "equals": {
+      "name": "punctuation.separator.key-value.sysctl",
+      "match": "="
+    },
+    "number": {
+      "name": "constant.numeric.integer.sysctl",
+      "match": "(?<![\\w-])-?\\d+\\b"
+    },
+    "boolean": {
+      "name": "constant.language.boolean.sysctl",
+      "match": "\\b(true|false|yes|no)\\b"
+    },
+    "subsystem": {
+      "name": "support.type.subsystem.sysctl",
+      "match": "\\b(net|kernel|vm|fs|dev|user|abi|debug|crypto)(?=\\.)"
+    }
+  }
+}

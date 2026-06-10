@@ -126,7 +126,12 @@
         "id": "debinterfaces",
         "aliases": ["Debian interfaces"],
         "filenames": ["interfaces"],
-        "filenamePatterns": ["**/interfaces.d/*", "**/interfaces/*.conf", "**/*-interfaces.conf"],
+        "filenamePatterns": [
+          "**/interfaces.d/*",
+          "**/interfaces/*.conf",
+          "**/*-interfaces.conf",
+          "**/*-interfaces.conf.tpl"
+        ],
         "configuration": "./language-config-hash.json"
       },
       {
@@ -163,6 +168,58 @@
           "**/sysctl.d/*.conf.tpl"
         ],
         "configuration": "./language-config-hash.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "frr",
+        "scopeName": "source.frr",
+        "path": "./syntaxes/frr.tmLanguage.json"
+      },
+      {
+        "language": "eos",
+        "scopeName": "source.eos",
+        "path": "./syntaxes/eos.tmLanguage.json"
+      },
+      {
+        "language": "vyos",
+        "scopeName": "source.vyos",
+        "path": "./syntaxes/vyos.tmLanguage.json"
+      },
+      {
+        "language": "routeros",
+        "scopeName": "source.routeros",
+        "path": "./syntaxes/routeros.tmLanguage.json"
+      },
+      {
+        "language": "bird",
+        "scopeName": "source.bird",
+        "path": "./syntaxes/bird.tmLanguage.json"
+      },
+      {
+        "language": "nftables",
+        "scopeName": "source.nftables",
+        "path": "./syntaxes/nftables.tmLanguage.json"
+      },
+      {
+        "language": "debinterfaces",
+        "scopeName": "source.debinterfaces",
+        "path": "./syntaxes/debinterfaces.tmLanguage.json"
+      },
+      {
+        "language": "wireguard",
+        "scopeName": "source.wireguard",
+        "path": "./syntaxes/wireguard.tmLanguage.json"
+      },
+      {
+        "language": "haproxy",
+        "scopeName": "source.haproxy",
+        "path": "./syntaxes/haproxy.tmLanguage.json"
+      },
+      {
+        "language": "sysctl",
+        "scopeName": "source.sysctl",
+        "path": "./syntaxes/sysctl.tmLanguage.json"
       }
     ],
     "configuration": {

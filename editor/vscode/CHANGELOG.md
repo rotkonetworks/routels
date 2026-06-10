@@ -13,6 +13,8 @@ Initial public release.
 - Filename-pattern detection for the usual paths (`frr.conf`, `bird.conf`,
   `haproxy.cfg`, `wg*.conf`, `sysctl.d/*.conf`, RouterOS `.rsc`, etc.),
   including `.tpl` template variants (`*.cfg.tpl`, `*.conf.tpl`, …).
+- TextMate syntax highlighting for all 10 languages, ported from the nvim
+  syntax files.
 - Comment / bracket / auto-closing pair configuration per language.
 - Settings: `routels.path` (binary location) and `routels.trace.server`
   (LSP trace verbosity).

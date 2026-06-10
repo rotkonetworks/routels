@@ -3,7 +3,7 @@
 src/**
 **/*.map
 **/*.ts
-!out/**
+!out/extension.js
 tsconfig.json
 package-lock.json
 *.vsix
@@ -16,3 +16,4 @@ node_modules/**
 !node_modules/vscode-languageserver-protocol/**
 !node_modules/vscode-languageserver-types/**
 !node_modules/semver/**
+

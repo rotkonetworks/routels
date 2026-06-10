@@ -1,0 +1,66 @@
+{
+  "name": "WireGuard",
+  "scopeName": "source.wireguard",
+  "patterns": [
+    { "include": "#comment" },
+    { "include": "#section" },
+    { "include": "#key" },
+    { "include": "#b64" },
+    { "include": "#prefix" },
+    { "include": "#ip6" },
+    { "include": "#ip4" },
+    { "include": "#number" },
+    { "include": "#eq" }
+  ],
+  "repository": {
+    "comment": {
+      "comment": "vim: syn match wgComment /^\\s*[#;].*$/ -> Comment",
+      "match": "^\\s*[#;].*$",
+      "name": "comment.line.number-sign.wireguard"
+    },
+    "section": {
+      "comment": "vim: syn match wgSection /^\\s*\\[\\(Interface\\|Peer\\)\\].*$/ -> Statement",
+      "match": "^\\s*((\\[)(Interface|Peer)(\\]).*)$",
+      "captures": {
+        "1": { "name": "entity.name.section.wireguard" },
+        "2": { "name": "punctuation.definition.section.begin.wireguard" },
+        "4": { "name": "punctuation.definition.section.end.wireguard" }
+      }
+    },
+    "key": {
+      "comment": "vim: syn match wgKey /^\\s*\\w\\+\\ze\\s*=/ -> Identifier",
+      "match": "^\\s*\\w+(?=\\s*=)",
+      "name": "keyword.other.wireguard"
+    },
+    "eq": {
+      "comment": "vim: syn match wgEq /=/ -> Operator",
+      "match": "=",
+      "name": "punctuation.separator.key-value.wireguard"
+    },
+    "number": {
+      "comment": "vim: syn match wgNumber /\\<\\d\\+\\>/ -> Number",
+      "match": "\\b\\d+\\b",
+      "name": "constant.numeric.wireguard"
+    },
+    "ip4": {
+      "comment": "vim: syn match wgIp4 /\\<\\d\\{1,3\\}\\(\\.\\d\\{1,3\\}\\)\\{3\\}\\>/ -> Constant",
+      "match": "\\b\\d{1,3}(\\.\\d{1,3}){3}\\b",
+      "name": "constant.numeric.ip.ipv4.wireguard"
+    },
+    "ip6": {
+      "comment": "vim: syn match wgIp6 /\\<\\([0-9a-fA-F]\\{1,4\\}\\:\\)\\+[0-9a-fA-F:]\\+\\(\\/\\d\\{1,3\\}\\)\\?/ -> Constant",
+      "match": "\\b([0-9a-fA-F]{1,4}:)+[0-9a-fA-F:]+(/\\d{1,3})?",
+      "name": "constant.numeric.ip.ipv6.wireguard"
+    },
+    "prefix": {
+      "comment": "vim: syn match wgPrefix /\\<\\d\\{1,3\\}\\(\\.\\d\\{1,3\\}\\)\\{3\\}\\/\\d\\{1,2\\}\\>/ -> Constant; defined after wgIp4/wgNumber in vim so it wins, hence ordered first here",
+      "match": "\\b\\d{1,3}(\\.\\d{1,3}){3}/\\d{1,2}\\b",
+      "name": "constant.numeric.ip.cidr.wireguard"
+    },
+    "b64": {
+      "comment": "vim: syn match wgB64 /\\<[A-Za-z0-9+\\/]\\{42,43\\}=/ -> Special; base64 wg key heuristic",
+      "match": "\\b[A-Za-z0-9+/]{42,43}=",
+      "name": "constant.other.key.base64.wireguard"
+    }
+  }
+}

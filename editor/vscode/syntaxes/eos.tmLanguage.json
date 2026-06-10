@@ -1,0 +1,79 @@
+{
+  "name": "Arista EOS",
+  "scopeName": "source.eos",
+  "patterns": [
+    { "include": "#comment" },
+    { "include": "#string" },
+    { "include": "#prefix" },
+    { "include": "#ipv6" },
+    { "include": "#ipv4" },
+    { "include": "#number" },
+    { "include": "#section" },
+    { "include": "#iface-kind" },
+    { "include": "#negation" },
+    { "include": "#directive" },
+    { "include": "#protocol" },
+    { "include": "#bgp" },
+    { "include": "#verb" },
+    { "include": "#family" }
+  ],
+  "repository": {
+    "comment": {
+      "name": "comment.line.exclamation.eos",
+      "match": "^\\s*!.*$"
+    },
+    "string": {
+      "name": "string.quoted.double.eos",
+      "begin": "\"",
+      "end": "\""
+    },
+    "number": {
+      "name": "constant.numeric.eos",
+      "match": "\\b\\d+\\b"
+    },
+    "ipv4": {
+      "name": "constant.numeric.ip.eos",
+      "match": "\\b\\d{1,3}(\\.\\d{1,3}){3}\\b"
+    },
+    "ipv6": {
+      "name": "constant.numeric.ip.eos",
+      "match": "\\b(?:[0-9a-fA-F]{1,4}:)+[0-9a-fA-F:]+(?:/\\d{1,3})?"
+    },
+    "prefix": {
+      "name": "constant.numeric.ip.eos",
+      "match": "\\b\\d{1,3}(\\.\\d{1,3}){3}/\\d{1,2}\\b"
+    },
+    "section": {
+      "name": "keyword.control.eos",
+      "match": "\\b(interface|router|vrf|line|vlan|management|exit-address-family|address-family|policy-map|class-map)\\b"
+    },
+    "iface-kind": {
+      "name": "storage.type.interface.eos",
+      "match": "\\b(Ethernet|Loopback|Management|Port-Channel|Vlan|Tunnel|Vxlan|Recirc-Channel|Fabric)\\d"
+    },
+    "negation": {
+      "name": "keyword.operator.word.eos",
+      "match": "\\bno\\b"
+    },
+    "directive": {
+      "name": "keyword.other.directive.eos",
+      "match": "\\b(hostname|daemon|transceiver|spanning-tree|service|username|role|aaa|logging|dot1x|ntp|snmp-server|clock-period|boot-config|event-handler)\\b"
+    },
+    "protocol": {
+      "name": "storage.type.protocol.eos",
+      "match": "\\b(bgp|ospfv3|ospf|isis|rip)\\b"
+    },
+    "bgp": {
+      "name": "keyword.other.bgp.eos",
+      "match": "\\b(neighbor|network|remote-as|peer-group|activate|next-hop-self|route-map|ebgp-multihop|send-community|soft-reconfiguration|update-source|maximum-routes|timers)\\b"
+    },
+    "verb": {
+      "name": "keyword.operator.word.verb.eos",
+      "match": "\\b(permit|deny|match|set|redistribute|shutdown|description|switchport|mode|access|trunk)\\b"
+    },
+    "family": {
+      "name": "variable.other.family.eos",
+      "match": "\\b(vpn-ipv4|ipv4|ipv6|unicast|multicast|evpn)\\b"
+    }
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "name": "BIRD",
+  "scopeName": "source.bird",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#ip6" },
+    { "include": "#prefix" },
+    { "include": "#ip4" },
+    { "include": "#number" },
+    { "include": "#keywords" },
+    { "include": "#protocols" },
+    { "include": "#families" },
+    { "include": "#statements" },
+    { "include": "#operators" },
+    { "include": "#delimiters" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.block.bird",
+          "begin": "/\\*",
+          "end": "\\*/"
+        },
+        {
+          "name": "comment.line.number-sign.bird",
+          "match": "#.*$"
+        },
+        {
+          "name": "comment.line.double-slash.bird",
+          "match": "//.*$"
+        }
+      ]
+    },
+    "strings": {
+      "name": "string.quoted.double.bird",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.bird",
+          "match": "\\\\\""
+        }
+      ]
+    },
+    "ip6": {
+      "name": "constant.numeric.ip.bird",
+      "match": "\\b([0-9a-fA-F]{1,4}:)+[0-9a-fA-F:]+(/\\d{1,3}\\+?)?"
+    },
+    "prefix": {
+      "name": "constant.numeric.ip.bird",
+      "match": "\\b\\d{1,3}(\\.\\d{1,3}){3}/\\d{1,2}\\+?"
+    },
+    "ip4": {
+      "name": "constant.numeric.ip.bird",
+      "match": "\\b\\d{1,3}(\\.\\d{1,3}){3}\\b"
+    },
+    "number": {
+      "name": "constant.numeric.bird",
+      "match": "\\b\\d+\\b"
+    },
+    "keywords": {
+      "name": "keyword.other.bird",
+      "match": "\\b(protocol|filter|function|define|include|router|table|template|attribute|roa4|roa6|timeformat|log|debug|latency|interpret|port)\\b"
+    },
+    "protocols": {
+      "name": "storage.type.bird",
+      "match": "\\b(bgp|ospf|rip|static|direct|device|kernel|pipe|babel|radv|bfd|mrt|perf|rpki|l3vpn)\\b"
+    },
+    "families": {
+      "name": "support.type.family.bird",
+      "match": "\\b(ipv4|ipv6|vpn4|vpn6|roa4|roa6|flow4|flow6|mpls)\\b"
+    },
+    "statements": {
+      "name": "keyword.control.bird",
+      "match": "\\b(local|neighbor|as|import|export|route|via|unreachable|blackhole|prohibit|recursive|multipath|weight|from|accept|reject|return|print|case|if|then|else|for|do)\\b"
+    },
+    "operators": {
+      "name": "keyword.operator.word.bird",
+      "match": "\\b(all|none|in|not|and|or|eq|ne|lt|le|gt|ge)\\b"
+    },
+    "delimiters": {
+      "patterns": [
+        {
+          "name": "punctuation.terminator.statement.bird",
+          "match": ";"
+        },
+        {
+          "name": "punctuation.section.block.bird",
+          "match": "[{}]"
+        }
+      ]
+    }
+  }
+}
